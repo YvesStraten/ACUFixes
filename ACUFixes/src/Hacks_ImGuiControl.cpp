@@ -10,6 +10,7 @@
 
 #include "Hack_EnterWindowsWhenRisPressed.h"
 #include "Hack_SlowMenacingWalkAndAutowalk.h"
+#include "Hack_EagleEyeColour.h"
 #include "Hack_CycleEquipmentWhenScrollingMousewheel.h"
 #include "Hack_ModifyAimingFOV.h"
 #include "Hack_DontForceUnsheatheWhenInDisguise.h"
@@ -54,6 +55,7 @@ class MyHacks
 public:
     AutoAssembleWrapper<EnterWindowWhenRisPressed> enterWindowsByPressingAButton;
     AutoAssembleWrapper<AllowSlowMenacingWalkAndAutowalk> menacingWalkAndAutowalk;
+    AutoAssembleWrapper<EagleEyeColour> eagleEyeColour;
     AutoAssembleWrapper<ModifyConditionalFOVs> changeZoomLevelsWhenAimingBombs;
     AutoAssembleWrapper<InputInjection_CycleEquipmentWhenScrollingMousewheel> cycleEquipmentUsingMouseWheel;
     AutoAssembleWrapper<DontUnsheatheLikeAnIdiotWhileInDisguise> dontUnsheatheWhenInDisguise;
@@ -131,6 +133,13 @@ public:
                 "Autowalk button",
                 g_Config.hacks->menacingWalkAndAutowalk->autowalkButton.get(),
                 ImGuiComboFlags_HeightLarge);
+        }
+        ImGui::DrawCheckboxForHack(eagleEyeColour, "Eagle eye highlight");
+        if(ImGui::IsItemHovered()){
+            ImGui::SetTooltip("Hello");
+        }
+        if(eagleEyeColour.IsActive()){
+            ImGuiCTX::Indent _indent;
         }
         ImGui::DrawCheckboxForHack(moreSituationsToDropBombs, "Can drop bombs in more situations, e.g. during a jump. Please read.");
         if (ImGui::IsItemHovered())

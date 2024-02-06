@@ -33,6 +33,11 @@ struct ConfigTop : YAConfigSection {
             ACM(autowalkButton, BindableKeyCode, EnumAdapter_template<BindableKeyCode>, BindableKeyCode::KEYBOARD_B);
         };
         ACM(menacingWalkAndAutowalk, MenacingWalk, YAConfigSectionAdapter, );
+        struct EagleEyeColour : YAConfigSection {
+            YACSTOR(EagleEyeColour);
+            ACM(isActive, bool, BooleanAdapter, true);
+        };
+        ACM(eagleEyeColour, EagleEyeColour, YAConfigSectionAdapter, );
         ACM(changeZoomLevelsWhenAimingBombs, bool, BooleanAdapter, true);
         struct YACS_moreSituationsToDropBombs : YAConfigSection {
             YACSTOR(YACS_moreSituationsToDropBombs);
